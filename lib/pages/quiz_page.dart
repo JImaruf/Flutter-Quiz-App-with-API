@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:quizappbymaruf/controller/quiz_controller.dart';
+import 'package:quizappbymaruf/pages/main_menu.dart';
 class QuizPage extends StatelessWidget {
   const QuizPage({super.key});
   @override
@@ -26,7 +27,7 @@ class QuizPage extends StatelessWidget {
                 ctrl.storeHighScoreData();
               }
               ctrl.resetAll();
-              Get.back();
+              Get.offAll(MainMenu());
             },
             icon: Icon(
               Icons.cancel_outlined,
@@ -62,7 +63,7 @@ class QuizPage extends StatelessWidget {
                                 width: 50,
                                 height: 50,
                                 child: CircularProgressIndicator(
-                                  value: ctrl.seconds / 20,
+                                  value: ctrl.seconds / 10,
                                   valueColor: const AlwaysStoppedAnimation(
                                       Colors.redAccent),
                                 ),
@@ -207,7 +208,6 @@ class QuizPage extends StatelessWidget {
                                     Future.delayed(const Duration(seconds: 2),
                                             () {
                                           ctrl.gotoNextQuestion();
-                                          ctrl.update();
                                         });
                                     ctrl.isCliked = true;
                                   }

@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
 import 'package:quizappbymaruf/models/quiz_model.dart';
+import 'package:quizappbymaruf/pages/main_menu.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 class QuizController extends GetxController{
+
   bool permitted=false;
-  var seconds = 20;
+  var seconds = 10;
   bool timerFtime=true;
   int currentScore=0;
   int totalScore=0;
@@ -52,17 +54,15 @@ class QuizController extends GetxController{
         print("Success");
         var data = jsonDecode(response.body)["questions"] as List;
         data1 = jsonDecode(response.body.toString());
+        optionsMap =data1["questions"][currentIndex]["answers"] as Map;
+        optionListNumber=optionsMap.keys.toList();
+        optionList=optionsMap.values.toList();
         for(Map i in data){
           allQuestionData.add(Questions.fromJson(i));
         }
         getTotalScore();
 
       }
-    // if(timerFtime)
-    //   {
-    //     timerFtime=false;
-    //     startTimer();
-    //   }
     permitted=true;
     return allQuestionData;
   }
@@ -72,12 +72,7 @@ class QuizController extends GetxController{
     // TODO: implement onInit
     super.onInit();
   }
-  @override
-  void onReady() {
-    // TODO: implement onReady
-    super.onReady();
 
-  }
   @override
   void onClose() {
     timer?.cancel();
@@ -110,9 +105,10 @@ class QuizController extends GetxController{
       currentIndex++;
       resetColors();
       timer!.cancel();
-      seconds = 20;
+      seconds = 10;
       startTimer();
       isCliked=false;
+      update();
 
     } else {
       timer!.cancel();
@@ -121,18 +117,18 @@ class QuizController extends GetxController{
         storeHighScoreData();
       }
       resetAll();
-      Get.back();
+      Get.offAll(MainMenu());
       //here you can do whatever you want with the results
     }
   }
   resetAll(){
     isCliked=false;
     timer?.cancel();
-    seconds = 20;
+    seconds = 10;
     currentScore=0;
     currentIndex=0;
+    timerFtime=true;
     resetColors();
-    update();
   }
 
   storeHighScoreData() async {
