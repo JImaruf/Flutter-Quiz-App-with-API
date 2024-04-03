@@ -80,8 +80,7 @@ class MainMenu extends StatelessWidget {
                 alignment: Alignment.center,
                 child: GestureDetector(
                   onTap: () {
-                    Get.to(QuizPage());
-
+                    Get.to(() => QuizPage());
                   },
                   child: Container(
                     margin: const EdgeInsets.only(bottom: 20),

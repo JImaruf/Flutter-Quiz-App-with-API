@@ -24,7 +24,7 @@ class QuizPage extends StatelessWidget {
                 ctrl.storeHighScoreData();
               }
               ctrl.resetAll();
-              Get.offAll(MainMenu());
+              Get.offAll(() => MainMenu());
             },
             icon: Icon(
               Icons.cancel_outlined,
@@ -34,7 +34,7 @@ class QuizPage extends StatelessWidget {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding:  EdgeInsets.all(8.0),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -42,8 +42,10 @@ class QuizPage extends StatelessWidget {
                   future: ctrl.getQuiz,
                   builder: (context, snapshot) {
 
-                    if (snapshot.hasData && ctrl.getData()) {
+                     if (snapshot.hasData && ctrl.getData())
+                   {
                       return Column(
+
                         children: [
                           Stack(
                             alignment: Alignment.center,
@@ -80,7 +82,7 @@ class QuizPage extends StatelessWidget {
                                 color: Colors.transparent),
                             child: Image(
                               errorBuilder: (context, error, stackTrace) {
-                                return Image.asset('assets/loadingpic.jpg');
+                                return Image.asset('assets/quizloading.gif',);
                               },
                               height: size.height / 4,
                               width: size.width / 1.5,
@@ -198,10 +200,6 @@ class QuizPage extends StatelessWidget {
                                       ctrl.timer!.cancel();
                                       ctrl.update();
                                     }
-                                    // ctrl.totalScore = ctrl.totalScore +
-                                    //     ctrl.allQuestionData[ctrl.currentIndex]
-                                    //         .score!
-                                    //         .toInt();
                                     Future.delayed(const Duration(seconds: 2),
                                             () {
                                           ctrl.gotoNextQuestion();
@@ -229,10 +227,11 @@ class QuizPage extends StatelessWidget {
                       );
                     } else {
                       return Center(
-                        child: Image.asset(
-                          height: 250,
-                            width: 250,
-                            'assets/loading.gif'),
+                        heightFactor: 2,
+                        child: Container(
+                          height: 300,
+                            width: 300,
+                            child: Image.asset('assets/quizloading.gif')),
                       );
 
                     }

@@ -33,7 +33,6 @@ class QuizController extends GetxController{
   String apiLink = "https://herosapp.nyc3.digitaloceanspaces.com/quiz.json";
   bool getData ()
   {
-    print("hi");
     if(permitted)
     {
       optionsMap =data1["questions"][currentIndex]["answers"] as Map;
@@ -125,7 +124,7 @@ class QuizController extends GetxController{
         storeHighScoreData();
       }
       resetAll();
-      Get.offAll(MainMenu());
+      Get.offAll(() => MainMenu());
       //here you can do whatever you want with the results
     }
   }
