@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:quizappbymaruf/controller/quiz_controller.dart';
 import 'package:quizappbymaruf/pages/main_menu.dart';
@@ -11,12 +10,10 @@ class QuizPage extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return GetBuilder<QuizController>(builder: (ctrl) {
       return Scaffold(
-        //backgroundColor: Colors.deepOrangeAccent,
-
         appBar: AppBar(
           backgroundColor: Colors.blueAccent.shade200,
           title: Text(
-            'Quiz',
+            'Play Quiz',
             style: TextStyle(color: Colors.white),
           ),
           centerTitle: true,
@@ -43,7 +40,6 @@ class QuizPage extends StatelessWidget {
               children: [
                 FutureBuilder(
                   future: ctrl.getData(),
-                //ctrl.fetchData(),
                   builder: (context, AsyncSnapshot snapshot) {
                     if (ctrl.permitted) {
                       return Column(
@@ -236,7 +232,7 @@ class QuizPage extends StatelessWidget {
                         child: Image.asset(
                           height: 250,
                             width: 250,
-                            'assets/duck.gif'),
+                            'assets/loading.gif'),
                       );
                     }
                   },

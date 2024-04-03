@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quizappbymaruf/const/colors.dart';
-
-import 'package:quizappbymaruf/const/text_style.dart';
 import 'package:quizappbymaruf/controller/quiz_controller.dart';
 import 'package:quizappbymaruf/pages/quiz_page.dart';
-
 class MainMenu extends StatelessWidget {
   const MainMenu({super.key});
 
@@ -18,7 +14,7 @@ class MainMenu extends StatelessWidget {
       return Scaffold(
         appBar: AppBar(
 
-          title: Text('Quiz App', style: TextStyle(color: Colors.amber),),
+          title: Text('Quiz App', style: TextStyle(color: Colors.amber,),),
           centerTitle: true,
         ),
         body: Padding(
@@ -97,8 +93,7 @@ class MainMenu extends StatelessWidget {
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: headingText(
-                        color: Colors.white, size: 18, text: "Start Quiz"),
+                    child: Text("Start Quiz",style: TextStyle(fontSize: 18,color: Colors.white),),
                   ),
                 ),
               ),

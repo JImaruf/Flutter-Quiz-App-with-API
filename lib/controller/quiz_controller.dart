@@ -94,7 +94,6 @@ class QuizController extends GetxController{
           seconds--;
           update();
         } else {
-          totalScore=totalScore+allQuestionData[currentIndex].score!.toInt();
           gotoNextQuestion();
         }
 
