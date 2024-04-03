@@ -3,6 +3,9 @@
 A new Flutter project.
 # Screenshot:
 ![Screenshot_15](https://github.com/JImaruf/Flutter-Quiz-App-with-API/assets/95274187/2544798a-ef2d-4353-89f8-fdb56a439893)
+![Screenshot_20](https://github.com/JImaruf/Flutter-Quiz-App-with-API/assets/95274187/406d72f1-7de4-4b99-8b73-8f32d4dd4ebd)
+
+![Screenshot_19](https://github.com/JImaruf/Flutter-Quiz-App-with-API/assets/95274187/400de2ca-dab2-40ac-9c72-aaac9e1e0971)
 ![Screenshot_16](https://github.com/JImaruf/Flutter-Quiz-App-with-API/assets/95274187/a4e7a3bd-37eb-42b4-bfb3-553915434e2f)
 
 ![Screenshot_17](https://github.com/JImaruf/Flutter-Quiz-App-with-API/assets/95274187/857dadbf-37b1-4642-b58d-038ea621ae50)
