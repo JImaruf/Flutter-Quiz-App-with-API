@@ -39,9 +39,10 @@ class QuizPage extends StatelessWidget {
             child: Column(
               children: [
                 FutureBuilder(
-                  future: ctrl.getData(),
-                  builder: (context, AsyncSnapshot snapshot) {
-                    if (ctrl.permitted) {
+                  future: ctrl.getQuiz,
+                  builder: (context, snapshot) {
+
+                    if (snapshot.hasData && ctrl.getData()) {
                       return Column(
                         children: [
                           Stack(
@@ -216,7 +217,6 @@ class QuizPage extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(12),
                                   ),
                                   child: Text(
-
                                     ctrl.optionList[index] ?? "Null",
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(color: Colors.white, fontSize: 16),
@@ -234,6 +234,7 @@ class QuizPage extends StatelessWidget {
                             width: 250,
                             'assets/loading.gif'),
                       );
+
                     }
                   },
                 )

@@ -22,6 +22,7 @@ class QuizController extends GetxController{
   var data1;
   var optionListNumber = [];
   var currentIndex = 0;
+  late Future getQuiz;
   bool isCliked = false;
   var optionsColor = [
     Colors.amber,
@@ -30,19 +31,27 @@ class QuizController extends GetxController{
     Colors.amber,
   ];
   String apiLink = "https://herosapp.nyc3.digitaloceanspaces.com/quiz.json";
-
-
-
-  getData()
+  bool getData ()
   {
-    optionsMap =data1["questions"][currentIndex]["answers"] as Map;
-    optionListNumber=optionsMap.keys.toList();
-    optionList=optionsMap.values.toList();
-    if(timerFtime)
+    print("hi");
+    if(permitted)
     {
-      timerFtime=false;
-      startTimer();
+      optionsMap =data1["questions"][currentIndex]["answers"] as Map;
+      optionListNumber=optionsMap.keys.toList();
+      optionList=optionsMap.values.toList();
+      if(timerFtime)
+      {
+        timerFtime=false;
+        startTimer();
+      }
+
+      return true;
+
     }
+    else
+      {
+        return false;
+      }
   }
 
   Future<List<Questions>>fetchData () async {
@@ -61,14 +70,14 @@ class QuizController extends GetxController{
           allQuestionData.add(Questions.fromJson(i));
         }
         getTotalScore();
-
+        permitted=true;
       }
-    permitted=true;
+
     return allQuestionData;
   }
   @override
   void onInit() {
-     fetchData();
+    getQuiz = fetchData();
     // TODO: implement onInit
     super.onInit();
   }
