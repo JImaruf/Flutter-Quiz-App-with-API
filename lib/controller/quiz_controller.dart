@@ -30,7 +30,7 @@ class QuizController extends GetxController{
     Colors.amber,
     Colors.amber,
   ];
-  String apiLink = "https://herosapp.nyc3.digitaloceanspaces.com/quiz.json";
+  String apiLink = "api link";
   bool getData ()
   {
     if(permitted)

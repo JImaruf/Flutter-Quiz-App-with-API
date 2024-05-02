@@ -14,7 +14,7 @@ class MainMenu extends StatelessWidget {
       return Scaffold(
         appBar: AppBar(
 
-          title: Text('Quiz App', style: TextStyle(color: Colors.amber,),),
+          title: const Text('Quiz App', style: TextStyle(color: Colors.amber,),),
           centerTitle: true,
         ),
         body: Padding(
@@ -27,7 +27,7 @@ class MainMenu extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.green, width: 2),
                         borderRadius: BorderRadius.circular(10),
@@ -35,23 +35,23 @@ class MainMenu extends StatelessWidget {
                       child: FutureBuilder(future: ctrl.getHighScore(), builder: (context, snapshot) {
                         if(snapshot.hasData)
                           {
-                            return Text('Highest Score : ${ctrl.highestScore}/${ctrl.totalScore}',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600),);
+                            return Text('Highest Score : ${ctrl.highestScore}/${ctrl.totalScore}',style: const TextStyle(fontSize: 15,fontWeight: FontWeight.w600),);
                           }
                         else
                           {
-                            return Text('Highest Score : Loading',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600),);
+                            return const Text('Highest Score : Loading',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600),);
                           }
                       },)
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Center(
                 child: Container(
                   height: size.height / 2,
                   width: size.width / 1.5,
-                  child: Image(
+                  child: const Image(
                    filterQuality: FilterQuality.high,
                    fit: BoxFit.cover,
                     image: AssetImage('assets/cup.png',
@@ -62,8 +62,8 @@ class MainMenu extends StatelessWidget {
               ),
 
 
-              Spacer(),
-              Row(
+              const Spacer(),
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                 Text('Welcome to Our ', style: TextStyle(color: Colors.amber,
@@ -73,14 +73,14 @@ class MainMenu extends StatelessWidget {
                     fontSize: 28,
                     fontWeight: FontWeight.bold),),
               ],),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
 
               //Spacer(),
               Align(
                 alignment: Alignment.center,
                 child: GestureDetector(
                   onTap: () {
-                    Get.to(() => QuizPage());
+                    Get.to(() => const QuizPage());
                   },
                   child: Container(
                     margin: const EdgeInsets.only(bottom: 20),
@@ -92,7 +92,7 @@ class MainMenu extends StatelessWidget {
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Text("Start Quiz",style: TextStyle(fontSize: 18,color: Colors.white),),
+                    child: const Text("Start Quiz",style: TextStyle(fontSize: 18,color: Colors.white),),
                   ),
                 ),
               ),
